@@ -1,1 +1,39 @@
+import pandas as pd
+from scipy.stats import ttest_ind
 
+df = pd.read_csv('hw3.csv', sep = ';')
+df['time_came'] = pd.to_datetime(df['time_came'])
+print(df.head())
+
+df_gr = df.groupby(['id_group', 'city']).agg({'nflag_purchase':'sum', 'id_client':'count'}).reset_index()
+df_gr['conv'] = df_gr['nflag_purchase'] / df_gr['id_client']
+print(df_gr.sort_values(by = 'city'))
+
+# сравнение среднего количества покупок вцелом между 0 и 1 группой
+s1, p1 = ttest_ind(df[df['id_group'] == 0]['nflag_purchase'], df[df['id_group'] == 1]['nflag_purchase'])
+print(s1, p1)
+print('----------------------------------------------------')
+# значение t-теста = -2.4014, если судить по общей статистике (не учитывая города по-отдельности), то смс-уведомления принесли бОльше покупок, чем пуш-уведомления
+
+#сравнение среднего количества покупок при сегментации по городам
+for i in df['city'].unique():
+    print(i)
+    s2, p2 = ttest_ind(df[(df['city'] == i) & (df['id_group'] == 0)]['nflag_purchase'], df[(df['city'] == i) & (df['id_group'] == 1)]['nflag_purchase'])
+    print(s2, p2)
+    print()
+#Все города (за исключением Владивостока) не отреагировали на изменение уведомлений. Во Владивостоке люди охотнее покупали украшения при смс-уведомлении
+
+#сравнение среднего количества покупок при сегментации по городам в 2020 г
+for i in df['city'].unique():
+    print(i)
+    s2, p2 = ttest_ind(df[(df['city'] == i) & (df['id_group'] == 0) & (df['time_came'].dt.year == 2020)]['nflag_purchase'], df[(df['city'] == i) & (df['id_group'] == 1) & (df['time_came'].dt.year == 2020)]['nflag_purchase'])
+    print(s2, p2)
+    print()
+print('----------------------------------------------------')
+
+# сравнение среднего количества покупок при сегментации по городам в 2021 г
+for i in df['city'].unique():
+    print(i)
+    s2, p2 = ttest_ind(df[(df['city'] == i) & (df['id_group'] == 0) & (df['time_came'].dt.year == 2021)]['nflag_purchase'], df[(df['city'] == i) & (df['id_group'] == 1) & (df['time_came'].dt.year == 2021)]['nflag_purchase'])
+    print(s2, p2)
+    print()

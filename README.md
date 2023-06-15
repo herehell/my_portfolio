@@ -57,7 +57,7 @@
 
 <br> 
 
-<p> Проект 3: Когортный анализ онлайн-кинотеатра с помощью SQL</p>
+<p> Проект: Когортный анализ онлайн-кинотеатра с помощью SQL</p>
 <p>Что нужно было сделать:<p>
 <ol>
   <li>Изучить ифнормацию из БД</li>
@@ -72,7 +72,7 @@
 <p>Как решала(-а): краткое описание решения (автореферат)<p>
 
 
-> <a href="https://drive.google.com/drive/folders/1wdD-mfSeIsHWgrMLJz8Tv_ClAuP_EAOQ?usp=sharing">Ссылка на проект</a>
+> <a href="https://drive.google.com/drive/folders/150Ap5iowkMHhkCYUEcYq8oAgrC8uoLjp?usp=sharing">Ссылка на проект</a>
 
 <p>Выводы (итоги):<p>
 <ol>

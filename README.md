@@ -47,7 +47,7 @@
 
 <p>Как решала(-а): краткое описание решения (автореферат)<p>
 
-> <a href="https://drive.google.com/drive/folders/11HcEeqniyrCMjuwHZ0GLysX0A2SEv-_x">Ссылка на проект</a>
+> <a href="https://drive.google.com/drive/folders/1itXvCYX8rN96cgV81o0xRU7Lw2VRRW1L?usp=sharing">Ссылка на проект</a>
 
 <p>Выводы (итоги):<p>
 <ol>
